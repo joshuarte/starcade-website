@@ -39,6 +39,9 @@ h2 {
 }
 </style>
 
-<script>
+<script lang="ts" setup>
 
+const log = () => {
+  console.log("iscritto")
+};
 </script>
