@@ -3,7 +3,7 @@ export default {
     preset: 'vercel-edge',
   },
   modules: [
-    'nuxt-newsletter'
+    'nuxt-newsletter',
   ],
   newsletter: {
     mailchimp: {
