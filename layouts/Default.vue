@@ -8,7 +8,12 @@
         but sign up for our newsletter to stay informed about our next launch and receive exclusive intergalactic
         goodies.
     </p>
-    
+
+    <form @submit.prevent="subscribe">
+        <label>Enter Company Name</label>
+        <input type="email" v-model="form.email" />
+        <button type="submit">REGISTRATI</button>
+    </form>
 </template>
 
 <style lang="scss" scoped>
@@ -30,42 +35,40 @@ h2 {
     text-align: center;
     color: white;
 }
-
-.newsletter-form {
-    font-family: sans-serif;
-    background-color: #003543;
-    border-radius: 4px;
-    padding: 9px;
-    width: fit-content;
-}
-
-.newsletter-form__button {
-    background-color: #00DC82;
-    color: #003543;
-    border-radius: 4px;
-    border: none;
-    padding: 8px;
-    margin: 8px;
-}
-
-.newsletter-form__header {
-    color: white;
-    margin: 8px;
-}
-
-.newsletter-form__input {
-    border-radius: 4px;
-    color: #92adad;
-    padding: 8px;
-    background-color: #003543;
-    margin: 8px;
-    border: 2px solid #00DC82;
-}
 </style>
-
-<script lang="ts" setup>
-
-const log = (e) => {
-    console.log(e)
+<script>
+import axios from 'axios'
+export default {
+    data() {
+        return {
+            form: {
+                email: ''
+            },
+            response: {
+                status: null,
+                message: ''
+            },
+            cachedForm: {}
+        }
+    },
+    methods: {
+        async subscribe(event) {
+            console.log(event)
+            console.log({...this.form})
+            const formData = { ...this.form }
+            try {
+                const { data, status } = await axios.post('/api/subscribe', formData)
+                this.response.status = status
+                this.response.message = `Thanks, ${data.email_address} is subscribed!`
+                this.form = { ...this.cachedForm }
+                this.$refs.subscribe.reset()
+            } catch (e) {
+                console.log(e)
+            }
+        }
+    },
+    mounted() {
+        this.cachedForm = { ...this.form }
+    }
 }
 </script>
