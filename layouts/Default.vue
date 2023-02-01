@@ -8,14 +8,7 @@
         but sign up for our newsletter to stay informed about our next launch and receive exclusive intergalactic
         goodies.
     </p>
-    <newsletter-form @subscribed="log" headerText="Cool Newsletter" buttonText="Join in!" inputPlaceholder="Your email">
-        <template #description>
-            <p>My Newsletter Description</p>
-        </template>
-        <template #button-icon>
-            <!-- icon component -->
-        </template>
-    </newsletter-form>
+    
 </template>
 
 <style lang="scss" scoped>

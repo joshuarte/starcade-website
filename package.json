@@ -13,7 +13,6 @@
     "sass-loader": "^10.4.1"
   },
   "dependencies": {
-    "nuxt-newsletter": "^0.2.0",
     "vercel": "^28.14.1"
   }
 }
