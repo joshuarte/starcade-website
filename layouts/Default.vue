@@ -54,10 +54,10 @@ export default {
     methods: {
         async subscribe(event) {
             console.log(event)
-            console.log({...this.form})
+            console.log({ ...this.form })
             const formData = { ...this.form }
             try {
-                const { data, status } = await axios.post('/api/subscribe', formData)
+                const { data, status } = await $fetch('/api/subscribe', formData)
                 this.response.status = status
                 this.response.message = `Thanks, ${data.email_address} is subscribed!`
                 this.form = { ...this.cachedForm }
