@@ -54,16 +54,14 @@ export default {
     },
     methods: {
         async subscribe(event) {
-            console.log({ "form": { ...this.form } })
             const formData = { ...this.form }
             try {
                 const { data, status } = await $fetch('/api/subscribe', {
-                    method: 'post',
-                    body: formData
+                    method: 'get',
                 });
                 this.response.status = status
                 console.log("data", data)
-                console.log("response", this.response)
+                console.log("response", response)
                 this.response.message = `Thanks,  is subscribed!`
                 this.form = { ...this.cachedForm }
             } catch (e) {
