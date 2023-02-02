@@ -7,12 +7,11 @@ import LogoPlaceholder from '~~/components/LogoPlaceholder.vue';
 <style>
 body {
     background: #2C4066;
-    display: flex;
-    align-items: center;
-    justify-content: center;
     height: 100vh;
     margin: 0;
-    padding: 0 2rem;
+    padding: 0;
+    position: relative;
+    width: 100vw;
 }
 
 * {
