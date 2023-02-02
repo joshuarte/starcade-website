@@ -186,6 +186,6 @@ h2 {
 }
 </style>
 
-<script setup>
-console.log(":･ﾟ✧:･.☽˚｡･ﾟ✧:･.: STARCADE :･ﾟ✧:･.☽˚｡･ﾟ✧:･.:")
+<script>
+    console.log(":･ﾟ✧:･.☽˚｡･ﾟ✧:･.: STARCADE :･ﾟ✧:･.☽˚｡･ﾟ✧:･.:")
 </script>
