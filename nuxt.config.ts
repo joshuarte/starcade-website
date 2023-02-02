@@ -25,7 +25,10 @@ export default defineNuxtConfig({
         { name: 'msapplication-TileColor', content: '#ffffff' },
         { name: 'msapplication-TileImage', content: '/ms-icon-144x144.png' },
         { name: 'theme-color', content: '#ffffff' },
+      ],
+      script: [
+        { src: 'https://www.googletagmanager.com/gtag/js?id=G-BWTRXSC97S' }
       ]
     }
-  },
+  }, 
 });
