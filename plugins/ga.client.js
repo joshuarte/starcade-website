@@ -1,5 +1,14 @@
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
+import { defineNuxtPlugin } from '#app'
+import VueGtag from 'vue-gtag-next'
 
-gtag('config', 'G-BWTRXSC97S');
+export default defineNuxtPlugin((nuxtApp) => {
+  const getGDPR = localStorage.getItem('GDPR:accepted');
+  nuxtApp.vueApp.use(VueGtag, {
+    property: {
+      id: 'G-BWTRXSC97S'
+    },
+    appName: 'Starcade Website',
+    enabled: getGDPR === 'true',
+    pageTrackerScreenviewEnabled: true
+  }, nuxtApp.vueApp.router);
+});
