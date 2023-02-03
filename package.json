@@ -13,6 +13,7 @@
     "@nuxtjs/prismic": "^3.0.0-rc.2",
     "@prismicio/types": "^0.2.7",
     "nuxt": "^3.0.0",
+    "nuxt-icon": "^0.2.10",
     "sass": "^1.57.1",
     "sass-loader": "^10.4.1",
     "slice-machine-ui": "^0.6.1"
