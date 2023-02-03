@@ -30,6 +30,10 @@ export default defineNuxtConfig({
         { src: 'https://www.googletagmanager.com/gtag/js?id=G-BWTRXSC97S' }
       ]
     }
-  }, 
-  plugins: ['~/plugins/ga.client.js']
-});
+  },
+  plugins: ['~/plugins/ga.client.js'],
+  modules: ['@nuxtjs/prismic'],
+  prismic: {
+    endpoint: 'https://starcade-website.cdn.prismic.io/api/v2'
+},
+}); 

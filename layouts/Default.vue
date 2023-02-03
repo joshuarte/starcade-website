@@ -6,6 +6,7 @@
             but sign up for our newsletter to stay informed about our next launch and receive exclusive intergalactic
             goodies.
         </p>
+        <PrismicRichText :field="data.landing_text" />
         <div class="cta">
             <a class="button" href="http://eepurl.com/ijMGCr">
                 <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 486.773 486.773">
@@ -186,6 +187,8 @@ h2 {
 }
 </style>
 
-<script>
-    console.log(":･ﾟ✧:･.☽˚｡･ﾟ✧:･.: STARCADE :･ﾟ✧:･.☽˚｡･ﾟ✧:･.:")
+<script setup>
+console.log(":･ﾟ✧:･.☽˚｡･ﾟ✧:･.: STARCADE :･ﾟ✧:･.☽˚｡･ﾟ✧:･.:")
+const { client } = usePrismic()
+const { data: home } = await useAsyncData('home', () => client.getByUID('page', 'home'))
 </script>
