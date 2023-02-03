@@ -34,6 +34,7 @@ export default defineNuxtConfig({
   plugins: ['~/plugins/ga.client.js'],
   modules: ['@nuxtjs/prismic'],
   prismic: {
-    endpoint: 'https://starcade-website.cdn.prismic.io/api/v2'
+    endpoint: 'https://starcade-website.cdn.prismic.io/api/v2',
+    linkResolver: '~/prismic/link-resolver.js'
 },
 }); 

@@ -1,12 +1,7 @@
 <template>
     <main>
         <slot />
-        <p>Get ready to blast off into the gaming galaxy!<br><br>
-            Starcade's website is currently under construction,
-            but sign up for our newsletter to stay informed about our next launch and receive exclusive intergalactic
-            goodies.
-        </p>
-        <PrismicRichText :field="data.landing_text" />
+        <PrismicRichText :field="home.data.landing_text" class="paragraph"/>
         <div class="cta">
             <a class="button" href="http://eepurl.com/ijMGCr">
                 <svg xmlns="http://www.w3.org/2000/svg" xml:space="preserve" viewBox="0 0 486.773 486.773">
@@ -84,13 +79,13 @@ h2 {
     margin: 0 auto;
 }
 
-p {
+.paragraph {
     font-family: "Montserrat", sans-serif;
     max-width: 500px;
     font-weight: 300;
 }
 
-p,
+.paragraph,
 h2 {
     text-align: center;
     color: white;
@@ -188,7 +183,10 @@ h2 {
 </style>
 
 <script setup>
-console.log(":･ﾟ✧:･.☽˚｡･ﾟ✧:･.: STARCADE :･ﾟ✧:･.☽˚｡･ﾟ✧:･.:")
 const { client } = usePrismic()
-const { data: home } = await useAsyncData('home', () => client.getByUID('page', 'home'))
+const { data: home } = await useAsyncData('home', () => client.getSingle('home'))
+</script>
+
+<script>
+console.log(":･ﾟ✧:･.☽˚｡･ﾟ✧:･.: STARCADE :･ﾟ✧:･.☽˚｡･ﾟ✧:･.:")
 </script>
