@@ -1,7 +1,7 @@
 import LogoPlaceholder from '~~/components/LogoPlaceholder.vue';
 
 <template>
-    <LogoPlaceholder></LogoPlaceholder>
+    <LogoPlaceholder src="~/assets/rives/starcade-intro.riv"></LogoPlaceholder>
 </template>
 
 <style>
