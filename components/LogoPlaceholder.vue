@@ -1,7 +1,7 @@
 
 <template>
     <div class="placeholder-logo">
-        <canvas ref="canvas" id="canvas" width="500" height="500"></canvas>
+        <canvas ref="canvas" id="canvas" width="1920" height="1080"></canvas>
     </div>
 </template>
 
@@ -10,27 +10,20 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 360px;
     margin: 0 auto;
     left: 0;
     right: 0;
 
-    svg {
-        width: 100%;
-        max-width: 500px;
+    canvas {
+        max-width: 100%;
     }
 
     @media screen and (min-width: 768px) {
-        max-width: 600px;
-
-        svg {
-            width: 100%;
-            max-width: 600px;
-        }
+        height: 350px;
     }
 
     @media screen and (min-width: 1024px) {
-        max-width: 500px;
+        height: 400px;
     }
 }
 </style>
