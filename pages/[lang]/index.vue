@@ -3,13 +3,21 @@ import LogoPlaceholder from '~~/components/LogoPlaceholder.vue';
 <template>
   <LogoPlaceholder src="~/assets/rives/starcade-intro.riv"></LogoPlaceholder>
   <PrismicRichText :field="home.data.landing_text" class="paragraph" />
-  <!-- {{ home.alternate_languages }} -->
-  <NuxtLink to="/en-GB">
-    Switch to Eng
-  </NuxtLink>
-  <NuxtLink to="">
-    Switch to Ita
-  </NuxtLink>
+  <!--   <ul>
+    <li v-for="post in news">
+      <p>Titolo</p>
+      <PrismicRichText :field="post.data.news_text" class="paragraph" />
+       <img :src="post.data.news_img.url" alt="{{post.data.news_img.al}}" />  
+    </li>
+  </ul> -->
+  <div class="lang-switcher">
+    <NuxtLink to="/en-GB">
+      <Icon class="icon" name="openmoji:flag-united-kingdom" size="42" />
+    </NuxtLink>
+    <NuxtLink to="/">
+      <Icon class="icon" name="openmoji:flag-italy" size="42" />
+    </NuxtLink>
+  </div>
   <div class="cta">
     <a class="button" href="http://eepurl.com/ijMGCr">
       <Icon class="icon" name="mdi:email-newsletter" size="24" />
@@ -64,6 +72,22 @@ body {
 </style>
 
 <style lang="scss" scoped>
+.lang-switcher {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 20px;
+
+  a {
+    display: block;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
 h2 {
   font-family: "Hogfish DEMO", sans-serif;
   max-width: 300px;
@@ -174,4 +198,8 @@ const { data: home } = await useAsyncData("home", async () => {
     throw createError({ statusCode: 404, message: "Page not found" });
   }
 });
+
+const { data: news } = await useAsyncData("news", () =>
+  client.getAllByType("news", { lang: route.params.lang })
+);
 </script>

@@ -11,7 +11,7 @@ export default defineNuxtPlugin((nuxtApp) => {
         id: "G-BWTRXSC97S",
       },
       appName: "Starcade Website",
-      enabled: "false",
+      enabled: false /* getGDPR === "true" */,
       pageTrackerScreenviewEnabled: true,
     },
     nuxtApp.vueApp.router
