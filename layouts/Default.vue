@@ -17,7 +17,4 @@ main {
 
 <script>
 console.log(":･ﾟ✧:･.☽˚｡･ﾟ✧:･.: STARCADE :･ﾟ✧:･.☽˚｡･ﾟ✧:･.:");
-const counter = useCounter();
-
-console.log(counter);
 </script>

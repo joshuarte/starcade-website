@@ -92,18 +92,6 @@ export default defineNuxtConfig({
   modules: ["@nuxtjs/prismic", "nuxt-icon", "@pinia/nuxt"],
   prismic: {
     endpoint: "https://starcade-website.cdn.prismic.io/api/v2",
-/*     clientConfig: {
-      routes: [
-        {
-          type: "homepage",
-          path: "/:lang?",
-        },
-        {
-          type: "page",
-          path: "/:lang?/:uid",
-        },
-      ],
-    }, */
   },
   imports: {
     dirs: ["./stores"],
