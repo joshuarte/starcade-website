@@ -3,9 +3,13 @@ import LogoPlaceholder from '~~/components/LogoPlaceholder.vue';
 <template>
   <LogoPlaceholder src="~/assets/rives/starcade-intro.riv"></LogoPlaceholder>
   <PrismicRichText :field="home.data.landing_text" class="paragraph" />
-
-  {{ home.alternate_languages }}
-
+  <!-- {{ home.alternate_languages }} -->
+  <NuxtLink to="/en-GB">
+    Switch to Eng
+  </NuxtLink>
+  <NuxtLink to="">
+    Switch to Ita
+  </NuxtLink>
   <div class="cta">
     <a class="button" href="http://eepurl.com/ijMGCr">
       <Icon class="icon" name="mdi:email-newsletter" size="24" />
