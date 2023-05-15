@@ -3,9 +3,21 @@ import LogoPlaceholder from '~~/components/LogoPlaceholder.vue';
 <template>
   <LogoPlaceholder src="~/assets/rives/starcade-intro.riv"></LogoPlaceholder>
   <PrismicRichText :field="home.data.landing_text" class="paragraph" />
-
-  {{ home.alternate_languages }}
-
+  <!--   <ul>
+    <li v-for="post in news">
+      <p>Titolo</p>
+      <PrismicRichText :field="post.data.news_text" class="paragraph" />
+       <img :src="post.data.news_img.url" alt="{{post.data.news_img.al}}" />  
+    </li>
+  </ul> -->
+  <div class="lang-switcher">
+    <a href="/en-GB" @click="refresh(event)">
+      <Icon class="icon" name="openmoji:flag-united-kingdom" size="42" />
+    </a>
+    <a href="/" @click="refresh(event)">
+      <Icon class="icon" name="openmoji:flag-italy" size="42" />
+    </a>
+  </div>
   <div class="cta">
     <a class="button" href="http://eepurl.com/ijMGCr">
       <Icon class="icon" name="mdi:email-newsletter" size="24" />
@@ -60,6 +72,22 @@ body {
 </style>
 
 <style lang="scss" scoped>
+.lang-switcher {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 20px;
+
+  a {
+    display: block;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
 h2 {
   font-family: "Hogfish DEMO", sans-serif;
   max-width: 300px;
@@ -96,7 +124,7 @@ h2 {
   display: flex;
   justify-content: center;
   gap: 15px;
-  margin-top: 100px;
+  margin-top: 40px;
 
   a {
     display: flex;
@@ -122,6 +150,7 @@ h2 {
   }
 
   @media screen and (min-width: 768px) {
+    margin-top: 100px;
     position: absolute;
     flex-direction: row;
     right: 1.5em;
@@ -145,6 +174,7 @@ h2 {
   justify-content: center;
   padding: 15px 35px;
   transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
 
   svg {
     margin-right: 15px;
@@ -158,6 +188,7 @@ h2 {
 </style>
 
 <script setup>
+/* reloadNuxtApp(); */
 const { client } = usePrismic();
 const route = useRoute();
 
@@ -170,4 +201,15 @@ const { data: home } = await useAsyncData("home", async () => {
     throw createError({ statusCode: 404, message: "Page not found" });
   }
 });
+
+const { data: news } = await useAsyncData("news", () =>
+  client.getAllByType("news", { lang: route.params.lang })
+);
+
+const refresh = function (event) {
+  console.log(event.target);
+  reloadNuxtApp({
+    path: window.location.pathname,
+  });
+};
 </script>
