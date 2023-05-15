@@ -11,12 +11,12 @@ import LogoPlaceholder from '~~/components/LogoPlaceholder.vue';
     </li>
   </ul> -->
   <div class="lang-switcher">
-    <NuxtLink to="/en-GB">
+    <a href="/en-GB" @click="refresh(event)">
       <Icon class="icon" name="openmoji:flag-united-kingdom" size="42" />
-    </NuxtLink>
-    <NuxtLink to="/">
+    </a>
+    <a href="/" @click="refresh(event)">
       <Icon class="icon" name="openmoji:flag-italy" size="42" />
-    </NuxtLink>
+    </a>
   </div>
   <div class="cta">
     <a class="button" href="http://eepurl.com/ijMGCr">
@@ -124,7 +124,7 @@ h2 {
   display: flex;
   justify-content: center;
   gap: 15px;
-  margin-top: 100px;
+  margin-top: 40px;
 
   a {
     display: flex;
@@ -150,6 +150,7 @@ h2 {
   }
 
   @media screen and (min-width: 768px) {
+    margin-top: 100px;
     position: absolute;
     flex-direction: row;
     right: 1.5em;
@@ -173,6 +174,7 @@ h2 {
   justify-content: center;
   padding: 15px 35px;
   transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
 
   svg {
     margin-right: 15px;
@@ -186,6 +188,7 @@ h2 {
 </style>
 
 <script setup>
+/* reloadNuxtApp(); */
 const { client } = usePrismic();
 const route = useRoute();
 
@@ -202,4 +205,11 @@ const { data: home } = await useAsyncData("home", async () => {
 const { data: news } = await useAsyncData("news", () =>
   client.getAllByType("news", { lang: route.params.lang })
 );
+
+const refresh = function (event) {
+  console.log(event.target);
+  reloadNuxtApp({
+    path: window.location.pathname,
+  });
+};
 </script>
