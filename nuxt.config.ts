@@ -97,13 +97,12 @@ export default defineNuxtConfig({
     "nuxt-icon",
     "@pinia/nuxt",
     "@nuxtjs/robots",
-    "@nuxtjs/html-validator",
     "nuxt-delay-hydration",
   ],
   delayHydration: {
     // enables nuxt-delay-hydration in dev mode for testing
     debug: process.env.NODE_ENV === "development",
-    mode: 'mount'
+    mode: "mount",
   },
   prismic: {
     endpoint: "https://starcade-website.cdn.prismic.io/api/v2",
