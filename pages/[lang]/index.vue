@@ -13,15 +13,27 @@ import LogoPlaceholder from '~~/components/LogoPlaceholder.vue';
     </li>
   </ul> -->
   <div class="lang-switcher">
-    <a href="/en-GB" @click="refresh(event)">
+    <a
+      href="/en-GB"
+      @click="refresh(event)"
+      aria-label="Switch to english version"
+    >
       <Icon class="icon" name="openmoji:flag-united-kingdom" size="42" />
     </a>
-    <a href="/" @click="refresh(event)">
+    <a
+      href="/"
+      @click="refresh(event)"
+      aria-label="Passa alla versione italiana"
+    >
       <Icon class="icon" name="openmoji:flag-italy" size="42" />
     </a>
   </div>
   <div class="cta">
-    <a class="button" href="http://eepurl.com/ijMGCr">
+    <a
+      class="button"
+      href="http://eepurl.com/ijMGCr"
+      aria-label="Subscribe to the newsletter"
+    >
       <Icon class="icon" name="mdi:email-newsletter" size="24" />
       NEWSLETTER
     </a>
@@ -29,29 +41,44 @@ import LogoPlaceholder from '~~/components/LogoPlaceholder.vue';
       class="button"
       href="https://www.instagram.com/starcadeproductions/"
       target="_blank"
+      aria-label="Follow us on instagram"
     >
       <Icon class="icon" name="ph:instagram-logo-fill" size="24" />
       INSTAGRAM
     </a>
   </div>
   <div class="socials">
-    <a rel="me" href="https://mastodon.uno/@starcade" target="_blank">
+    <a
+      rel="me"
+      href="https://mastodon.uno/@starcade"
+      target="_blank"
+      aria-label="Follow us on Mastodon"
+    >
       <Icon class="icon" name="mdi:mastodon" size="24" />
     </a>
-    <a href="https://linkedin.com/company/starcadeproductions" target="_blank">
+    <a
+      href="https://linkedin.com/company/starcadeproductions"
+      target="_blank"
+      aria-label="Follow us on LinkedIn"
+    >
       <Icon class="icon" name="mdi:linkedin" size="24" />
     </a>
     <a
       class="socials__twitter"
       href="https://twitter.com/StarcadeProd"
       target="_blank"
+      aria-label="Follow us on Twitter"
     >
       <Icon class="icon" name="uil:twitter" size="24" />
     </a>
-    <a href="https://instagram.com/starcadeproductions" target="_blank">
+    <a
+      href="https://instagram.com/starcadeproductions"
+      target="_blank"
+      aria-label="Follow us on Instagram"
+    >
       <Icon class="icon" name="ph:instagram-logo-fill" size="24" />
     </a>
-    <a href="mailto:info@starcade.it">
+    <a href="mailto:info@starcade.it" aria-label="Contact us!">
       <Icon class="icon" name="bx:bxs-paper-plane" size="24" />
     </a>
   </div>
