@@ -2,7 +2,9 @@ import LogoPlaceholder from '~~/components/LogoPlaceholder.vue';
 
 <template>
   <LogoPlaceholder src="~/assets/rives/starcade-intro.riv"></LogoPlaceholder>
-  <PrismicRichText :field="home.data.landing_text" class="paragraph" />
+  <DelayHydration>
+    <PrismicRichText :field="home.data.landing_text" class="paragraph" />
+  </DelayHydration>
   <!--   <ul>
     <li v-for="post in news">
       <p>Titolo</p>

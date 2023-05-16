@@ -2,7 +2,6 @@ export default defineNuxtConfig({
   nitro: {
     preset: "vercel-edge",
   },
-
   app: {
     head: {
       link: [
@@ -99,26 +98,26 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@nuxtjs/robots",
     "@nuxtjs/html-validator",
+    "nuxt-delay-hydration",
   ],
-
+  delayHydration: {
+    // enables nuxt-delay-hydration in dev mode for testing
+    debug: process.env.NODE_ENV === "development",
+    mode: 'mount'
+  },
   prismic: {
     endpoint: "https://starcade-website.cdn.prismic.io/api/v2",
   },
-
   imports: {
     dirs: ["./stores"],
   },
-
   pinia: {
     autoImports: ["defineStore", "acceptHMRUpdate"],
   },
-
   devtools: {
     enabled: true,
   },
-
   extends: ["nuxt-seo-kit"],
-
   runtimeConfig: {
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || "https://www.starcade.it",

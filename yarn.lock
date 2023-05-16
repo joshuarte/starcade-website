@@ -1923,7 +1923,7 @@
     unimport "^3.0.6"
     untyped "^1.3.2"
 
-"@nuxt/kit@3.4.3", "@nuxt/kit@^3.0.0", "@nuxt/kit@^3.1.0", "@nuxt/kit@^3.2.3", "@nuxt/kit@^3.3.3", "@nuxt/kit@^3.4.2", "@nuxt/kit@^3.4.3":
+"@nuxt/kit@3.4.3", "@nuxt/kit@^3.0.0", "@nuxt/kit@^3.1.0", "@nuxt/kit@^3.1.2", "@nuxt/kit@^3.2.3", "@nuxt/kit@^3.3.3", "@nuxt/kit@^3.4.2", "@nuxt/kit@^3.4.3":
   version "3.4.3"
   resolved "https://registry.yarnpkg.com/@nuxt/kit/-/kit-3.4.3.tgz#2ab6efb0a4db7b4e5f4d8d7d7e696fa30a6e8771"
   integrity sha512-aQyzplYFCL292UsVZzlOZOC51ZKYFL0PBihbcPzxTzXQvAfMF8/DQ539kqzqXzxTCcmnUB9ROhIaNUrAeUkFYA==
@@ -3436,7 +3436,14 @@
   dependencies:
     "@types/node" "*"
 
-"@types/lodash@^4.14.175":
+"@types/lodash.template@^4.5.1":
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/@types/lodash.template/-/lodash.template-4.5.1.tgz#3a2325e02963ca8aced4a657598ac26816340d83"
+  integrity sha512-0y71S2dGgmwdkSsyW95JBp8HSZchgKCsjr6F0lsT3eSMtaT3Nn9rcMHU1U4UKu6XjQT3YC6/PNwgFI7k9f+ltw==
+  dependencies:
+    "@types/lodash" "*"
+
+"@types/lodash@*", "@types/lodash@^4.14.175":
   version "4.14.194"
   resolved "https://registry.yarnpkg.com/@types/lodash/-/lodash-4.14.194.tgz#b71eb6f7a0ff11bff59fc987134a093029258a76"
   integrity sha512-r22s9tAS7imvBt2lyHC9B8AGwWnXaYb1tY09oyLkXDs4vArpYJzw09nj8MLx5VfciBPGIb+ZwG0ssYnEPJxn/g==
@@ -10375,6 +10382,17 @@ nuxt-config-schema@^0.4.4:
     pathe "^1.0.0"
     untyped "^1.3.2"
 
+nuxt-delay-hydration@^1.1.4:
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/nuxt-delay-hydration/-/nuxt-delay-hydration-1.1.4.tgz#a140c993d92bb2fe9fe3f3b2e98c80661c3af7f8"
+  integrity sha512-CXa/DYiho0YP1Sw3gwedU9XY003KfiC9VeZ7yvLcmozmOpcQH8DsSgH9iSdNXbTbAMMyaPWCTYqWoNBU607YCw==
+  dependencies:
+    "@nuxt/kit" "^3.1.2"
+    "@types/lodash.template" "^4.5.1"
+    lodash.template "^4.5.0"
+    packrup "^0.1.0"
+    radix3 "^1.0.0"
+
 nuxt-icon@^0.2.10:
   version "0.2.11"
   resolved "https://registry.yarnpkg.com/nuxt-icon/-/nuxt-icon-0.2.11.tgz#12ca6f4b15934119b38b17bd79ebf51e43fddc58"
@@ -10803,6 +10821,11 @@ pac-resolver@^5.0.0:
     degenerator "^3.0.2"
     ip "^1.1.5"
     netmask "^2.0.2"
+
+packrup@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/packrup/-/packrup-0.1.0.tgz#8a2d865a45aaee9807504046548678fa3382b6e3"
+  integrity sha512-HnUl9ztHGty5ZK13WM8Q7854SWPKH/eCT+MiTO0P1qCu1Y4S5PPJ8E9MwD3cnjSr7PUPzXDnmOVJIKM043OfJQ==
 
 pacote@^15.1.3:
   version "15.1.3"
