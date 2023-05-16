@@ -94,3 +94,5 @@ sw.*
 
 # Vercel
 .vercel
+
+.unlighthouse

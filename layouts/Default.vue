@@ -1,5 +1,7 @@
 <template>
   <main>
+    <SeoKit />
+    <OgImageScreenshot />
     <slot />
   </main>
 </template>

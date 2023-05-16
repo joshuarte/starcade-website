@@ -2,6 +2,7 @@ export default defineNuxtConfig({
   nitro: {
     preset: "vercel-edge",
   },
+
   app: {
     head: {
       link: [
@@ -86,17 +87,45 @@ export default defineNuxtConfig({
         { src: "https://www.googletagmanager.com/gtag/js?id=G-BWTRXSC97S" },
         { src: "https://unpkg.com/@rive-app/canvas@1.0.98" },
       ],
+      titleTemplate: "%pageTitle %titleSeparator %siteName",
     },
   },
+
   plugins: ["~/plugins/ga.client.js"],
-  modules: ["@nuxtjs/prismic", "nuxt-icon", "@pinia/nuxt"],
+
+  modules: [
+    "@nuxtjs/prismic",
+    "nuxt-icon",
+    "@pinia/nuxt",
+    "@nuxtjs/robots",
+    "@nuxtjs/html-validator",
+  ],
+
   prismic: {
     endpoint: "https://starcade-website.cdn.prismic.io/api/v2",
   },
+
   imports: {
     dirs: ["./stores"],
   },
+
   pinia: {
     autoImports: ["defineStore", "acceptHMRUpdate"],
+  },
+
+  devtools: {
+    enabled: true,
+  },
+
+  extends: ["nuxt-seo-kit"],
+
+  runtimeConfig: {
+    public: {
+      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || "https://www.starcade.it",
+      siteName: "STARCADE",
+      siteDescription: "Never. Stop. Play.",
+      language: "it-IT",
+      titleSeparator: "|",
+    },
   },
 });

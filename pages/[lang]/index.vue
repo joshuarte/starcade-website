@@ -188,6 +188,9 @@ h2 {
 </style>
 
 <script setup>
+useHead({
+  title: "Welcome",
+});
 /* reloadNuxtApp(); */
 const { client } = usePrismic();
 const route = useRoute();
