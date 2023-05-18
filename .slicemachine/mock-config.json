@@ -1,6 +1,11 @@
 {
   "_cts": {
     "home": {},
-    "news": {}
+    "news": {},
+    "about": {},
+    "page": {}
+  },
+  "slices": {
+    "TextBlock": {}
   }
 }
