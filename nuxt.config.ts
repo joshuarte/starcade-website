@@ -106,6 +106,19 @@ export default defineNuxtConfig({
   },
   prismic: {
     endpoint: "https://starcade-website.cdn.prismic.io/api/v2",
+    clientConfig: {
+      routes: [
+        {
+          type: "home",
+          path: "/:lang?",
+        },
+        // Resolves Page documents to URLs like "/about" and "/blog"
+        {
+          type: "page",
+          path: "/:lang?/:uid",
+        },
+      ],
+    },
   },
   imports: {
     dirs: ["./stores"],
