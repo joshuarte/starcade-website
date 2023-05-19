@@ -84,7 +84,7 @@ export default defineNuxtConfig({
       ],
       script: [
         { src: "https://www.googletagmanager.com/gtag/js?id=G-BWTRXSC97S" },
-        { src: "https://unpkg.com/@rive-app/canvas@1.0.98" },
+       /*  { src: "https://unpkg.com/@rive-app/canvas@1.0.98" }, */
       ],
       titleTemplate: "%pageTitle %titleSeparator %siteName",
     },
@@ -98,6 +98,7 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@nuxtjs/robots",
     "nuxt-delay-hydration",
+    "@nuxtjs/i18n",
   ],
   delayHydration: {
     // enables nuxt-delay-hydration in dev mode for testing
@@ -106,19 +107,20 @@ export default defineNuxtConfig({
   },
   prismic: {
     endpoint: "https://starcade-website.cdn.prismic.io/api/v2",
-    clientConfig: {
-      routes: [
-        {
-          type: "home",
-          path: "/:lang?",
-        },
-        // Resolves Page documents to URLs like "/about" and "/blog"
-        {
-          type: "page",
-          path: "/:lang?/:uid",
-        },
-      ],
-    },
+  },
+  i18n: {
+    locales: [
+      {
+        code: "en",
+        name: "English",
+      },
+      {
+        code: "it",
+        name: "Italian",
+      },
+    ],
+    defaultLocale: "it",
+    vueI18n: "./i18n.config.ts", // if you are using custom path, default
   },
   imports: {
     dirs: ["./stores"],

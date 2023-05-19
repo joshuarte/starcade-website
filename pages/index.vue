@@ -1,4 +1,249 @@
-<script>
-import index from "~/pages/[lang]/index.vue";
-export default index;
+import LogoPlaceholder from '~~/components/LogoPlaceholder.vue';
+
+<template>
+  <LogoPlaceholder src="~/assets/rives/starcade-intro.riv"></LogoPlaceholder>
+  <DelayHydration>
+    <PrismicRichText :field="home.data.landing_text" class="paragraph" />
+  </DelayHydration>
+  <!--   <ul>
+    <li v-for="post in news">
+      <p>Titolo</p>
+      <PrismicRichText :field="post.data.news_text" class="paragraph" />
+       <img :src="post.data.news_img.url" alt="{{post.data.news_img.al}}" />  
+    </li>
+  </ul> -->
+  <div class="lang-switcher">
+    <NuxtLink
+      :to="localePath('index', 'en')"
+      aria-label="Switch to english version"
+    >
+      <Icon class="icon" name="openmoji:flag-united-kingdom" size="42" />
+    </NuxtLink>
+    <NuxtLink
+      :to="localePath('index', 'it')"
+      aria-label="Passa alla versione italiana"
+    >
+      <Icon class="icon" name="openmoji:flag-italy" size="42" />
+    </NuxtLink>
+  </div>
+  <div class="cta">
+    <a
+      class="button"
+      href="http://eepurl.com/ijMGCr"
+      aria-label="Subscribe to the newsletter"
+    >
+      <Icon class="icon" name="mdi:email-newsletter" size="24" />
+      NEWSLETTER
+    </a>
+    <a
+      class="button"
+      href="https://www.instagram.com/starcadeproductions/"
+      target="_blank"
+      aria-label="Follow us on instagram"
+    >
+      <Icon class="icon" name="ph:instagram-logo-fill" size="24" />
+      INSTAGRAM
+    </a>
+  </div>
+  <div class="socials">
+    <a
+      rel="me"
+      href="https://mastodon.uno/@starcade"
+      target="_blank"
+      aria-label="Follow us on Mastodon"
+    >
+      <Icon class="icon" name="mdi:mastodon" size="24" />
+    </a>
+    <a
+      href="https://linkedin.com/company/starcadeproductions"
+      target="_blank"
+      aria-label="Follow us on LinkedIn"
+    >
+      <Icon class="icon" name="mdi:linkedin" size="24" />
+    </a>
+    <a
+      class="socials__twitter"
+      href="https://twitter.com/StarcadeProd"
+      target="_blank"
+      aria-label="Follow us on Twitter"
+    >
+      <Icon class="icon" name="uil:twitter" size="24" />
+    </a>
+    <a
+      href="https://instagram.com/starcadeproductions"
+      target="_blank"
+      aria-label="Follow us on Instagram"
+    >
+      <Icon class="icon" name="ph:instagram-logo-fill" size="24" />
+    </a>
+    <a href="mailto:info@starcade.it" aria-label="Contact us!">
+      <Icon class="icon" name="bx:bxs-paper-plane" size="24" />
+    </a>
+  </div>
+</template>
+
+<style>
+body {
+  background: #2c4066;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  width: 100vw;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+</style>
+
+<style lang="scss" scoped>
+.lang-switcher {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 20px;
+
+  a {
+    display: block;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+h2 {
+  font-family: "Hogfish DEMO", sans-serif;
+  max-width: 300px;
+  line-height: 1.25;
+  margin: 0 auto;
+}
+
+.paragraph {
+  font-family: "Montserrat", sans-serif;
+  max-width: 500px;
+  font-weight: 300;
+}
+
+.paragraph,
+h2 {
+  text-align: center;
+  color: white;
+}
+
+.cta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 45px;
+
+  @media screen and (min-width: 768px) {
+    flex-direction: row;
+  }
+}
+
+.socials {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 40px;
+
+  a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 150px;
+    background: #f3faef;
+    color: #2c4066;
+    width: 30px;
+    height: 30px;
+    padding: 10px;
+    transition: all 0.2s ease-in-out;
+    border: 3px solid #f3faef;
+
+    &:hover {
+      background: #2c4066;
+      color: #f3faef;
+
+      svg {
+        fill: #f3faef;
+      }
+    }
+  }
+
+  @media screen and (min-width: 768px) {
+    margin-top: 100px;
+    position: absolute;
+    flex-direction: row;
+    right: 1.5em;
+    left: auto;
+    top: 1.5em;
+    bottom: auto;
+    flex-direction: column;
+  }
+}
+
+.button {
+  width: 100%;
+  background: #f3faef;
+  color: #2c4066;
+  font-family: "Montserrat", sans-serif;
+  text-decoration: none;
+  outline: 0;
+  border: 5px solid #b2d9db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 35px;
+  transition: all 0.2s ease-in-out;
+  box-sizing: border-box;
+
+  svg {
+    margin-right: 15px;
+  }
+
+  &:hover {
+    color: #f3faef;
+    background: #2c4066;
+  }
+}
+</style>
+
+<script setup>
+useHead({
+  title: "Welcome",
+});
+/* reloadNuxtApp(); */
+const { client } = usePrismic();
+const { locale } = useI18n();
+
+const route = useRoute();
+
+let usedLanguage = locale._value == "it" ? "it-IT" : "en-GB";
+
+const { data: home } = await useAsyncData("home", async () => {
+  const document = await client.getSingle("home", { lang: usedLanguage });
+
+  if (document) {
+    return document;
+  } else {
+    throw createError({ statusCode: 404, message: "Page not found" });
+  }
+});
+
+const { data: news } = await useAsyncData("news", () =>
+  client.getAllByType("news", { lang: route.params.lang })
+);
+
+const refresh = function (event) {
+  console.log(event.target);
+  reloadNuxtApp({
+    path: window.location.pathname,
+  });
+};
 </script>

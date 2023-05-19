@@ -144,11 +144,13 @@ useHead({
 });
 /* reloadNuxtApp(); */
 const { client } = usePrismic();
+const { locale } = useI18n();
 const route = useRoute();
+let usedLanguage = locale._value == "it" ? "it-IT" : "en-GB";
 
 const { data: page } = await useAsyncData("page", async () => {
   const document = await client.getByUID("page", route.params.uid, {
-    lang: route.params.lang,
+    lang: usedLanguage,
   });
 
   if (document) {

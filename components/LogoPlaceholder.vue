@@ -33,3 +33,21 @@
   }
 }
 </style>
+
+<script lang="ts">
+import { Rive } from "@rive-app/canvas";
+
+export default defineComponent({
+  name: "Rive",
+  props: {
+    src: String,
+  },
+  mounted() {
+    new Rive({
+      canvas: this.$refs.canvas,
+      src: "../rives/starcade-intro-2.riv",
+      autoplay: true,
+    });
+  },
+});
+</script>
