@@ -34,21 +34,11 @@
 }
 </style>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-import { Rive } from "@rive-app/canvas";
+<script setup lang="ts">
+// alternatively, you can also use it here
+const { $riveInstance } = useNuxtApp();
 
-export default defineComponent({
-  name: "Rive",
-  props: {
-    src: String,
-  },
-  mounted() {
-    new Rive({
-      canvas: this.$refs.canvas,
-      src: "../rives/starcade-intro-2.riv",
-      autoplay: true,
-    });
-  },
-});
+const riveInstance = $riveInstance;
+
+console.log(riveInstance);
 </script>
