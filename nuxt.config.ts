@@ -99,7 +99,6 @@ export default defineNuxtConfig({
     "@nuxtjs/robots",
     "nuxt-delay-hydration",
     "@nuxtjs/i18n",
-    "@rive-app/canvas",
   ],
   delayHydration: {
     // enables nuxt-delay-hydration in dev mode for testing
