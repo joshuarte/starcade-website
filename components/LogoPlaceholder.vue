@@ -35,8 +35,8 @@
 </style>
 
 <script lang="ts">
-import pkg from "node_modules/@rive-app/canvas/rive.js";
-const { Rive } = pkg;
+import { defineComponent } from "vue";
+import { Rive } from "@rive-app/canvas";
 
 export default defineComponent({
   name: "Rive",
