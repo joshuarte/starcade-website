@@ -29,6 +29,7 @@
     "nuxt-delay-hydration": "^1.1.4",
     "nuxt-seo-kit": "^1.3.8",
     "vercel": "^28.14.1",
-    "vue-gtag-next": "^1.14.0"
+    "vue-gtag-next": "^1.14.0",
+    "vxt": "^1.ue-gtag-ne14.0"
   }
 }

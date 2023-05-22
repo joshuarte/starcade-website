@@ -84,7 +84,7 @@ export default defineNuxtConfig({
       ],
       script: [
         { src: "https://www.googletagmanager.com/gtag/js?id=G-BWTRXSC97S" },
-       /*  { src: "https://unpkg.com/@rive-app/canvas@1.0.98" }, */
+        /*  { src: "https://unpkg.com/@rive-app/canvas@1.0.98" }, */
       ],
       titleTemplate: "%pageTitle %titleSeparator %siteName",
     },

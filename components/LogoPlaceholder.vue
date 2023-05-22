@@ -1,5 +1,5 @@
 <template>
-  <div class="placeholder-logo">
+  <div className="placeholder-logo">
     <canvas ref="canvas" id="canvas" width="500" height="500"></canvas>
   </div>
 </template>
