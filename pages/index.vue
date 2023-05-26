@@ -5,13 +5,15 @@ import LogoPlaceholder from '~~/components/LogoPlaceholder.vue';
   <DelayHydration>
     <PrismicRichText :field="home.data.landing_text" class="paragraph" />
   </DelayHydration>
-  <!--   <ul>
+  <ul>
     <li v-for="post in news">
+      <NuxtLink :to="localePath('/news/' + post.uid)"> Click me </NuxtLink>
+      {{ post }}
       <p>Titolo</p>
       <PrismicRichText :field="post.data.news_text" class="paragraph" />
-       <img :src="post.data.news_img.url" alt="{{post.data.news_img.al}}" />  
+      <img :src="post.data.news_img.url" alt="{{post.data.news_img.al}}" />
     </li>
-  </ul> -->
+  </ul>
   <div class="lang-switcher">
     <NuxtLink
       :to="switchLocalePath('en')"
@@ -221,7 +223,6 @@ useHead({
 /* reloadNuxtApp(); */
 const { client } = usePrismic();
 const langs = useLanguages();
-const route = useRoute();
 
 const { data: home } = await useAsyncData("home", async () => {
   const document = await client.getSingle("home", { lang: langs.activeLocale });

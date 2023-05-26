@@ -28,6 +28,4 @@ const { locale } = useI18n();
 const languages = useLanguages();
 
 languages.changeLang(locale.value);
-
-console.log(languages.activeLocale);
 </script>
