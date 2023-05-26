@@ -33,12 +33,3 @@
   }
 }
 </style>
-
-<script setup lang="ts">
-// alternatively, you can also use it here
-const { $riveInstance } = useNuxtApp();
-
-const riveInstance = $riveInstance;
-
-console.log(riveInstance);
-</script>

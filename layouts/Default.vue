@@ -1,6 +1,7 @@
 <template>
   <main>
     <SeoKit />
+    <CookieControl :locale="locale._value" />
     <OgImageScreenshot />
     <slot />
   </main>
@@ -21,6 +22,12 @@ main {
 }
 </style>
 
-<script>
+<script setup>
 console.log(":･ﾟ✧:･.☽˚｡･ﾟ✧:･.: STARCADE :･ﾟ✧:･.☽˚｡･ﾟ✧:･.:");
+const { locale } = useI18n();
+const languages = useLanguages();
+
+languages.changeLang(locale.value);
+
+console.log(languages.activeLocale);
 </script>

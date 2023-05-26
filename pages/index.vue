@@ -14,13 +14,13 @@ import LogoPlaceholder from '~~/components/LogoPlaceholder.vue';
   </ul> -->
   <div class="lang-switcher">
     <NuxtLink
-      :to="localePath('index', 'en')"
+      :to="switchLocalePath('en')"
       aria-label="Switch to english version"
     >
       <Icon class="icon" name="openmoji:flag-united-kingdom" size="42" />
     </NuxtLink>
     <NuxtLink
-      :to="localePath('index', 'it')"
+      :to="switchLocalePath('it')"
       aria-label="Passa alla versione italiana"
     >
       <Icon class="icon" name="openmoji:flag-italy" size="42" />
@@ -116,14 +116,14 @@ body {
 }
 
 h2 {
-  font-family: "Hogfish DEMO", sans-serif;
+  font-family: "Nunito", sans-serif;
   max-width: 300px;
   line-height: 1.25;
   margin: 0 auto;
 }
 
 .paragraph {
-  font-family: "Montserrat", sans-serif;
+  font-family: "PT Sans", sans-serif;
   max-width: 500px;
   font-weight: 300;
 }
@@ -192,7 +192,7 @@ h2 {
   width: 100%;
   background: #f3faef;
   color: #2c4066;
-  font-family: "Montserrat", sans-serif;
+  font-family: "PT Sans", sans-serif;
   text-decoration: none;
   outline: 0;
   border: 5px solid #b2d9db;
@@ -220,14 +220,11 @@ useHead({
 });
 /* reloadNuxtApp(); */
 const { client } = usePrismic();
-const { locale } = useI18n();
-
+const langs = useLanguages();
 const route = useRoute();
 
-let usedLanguage = locale._value == "it" ? "it-IT" : "en-GB";
-
 const { data: home } = await useAsyncData("home", async () => {
-  const document = await client.getSingle("home", { lang: usedLanguage });
+  const document = await client.getSingle("home", { lang: langs.activeLocale });
 
   if (document) {
     return document;
@@ -237,13 +234,6 @@ const { data: home } = await useAsyncData("home", async () => {
 });
 
 const { data: news } = await useAsyncData("news", () =>
-  client.getAllByType("news", { lang: route.params.lang })
+  client.getAllByType("news", { lang: langs.activeLocale })
 );
-
-const refresh = function (event) {
-  console.log(event.target);
-  reloadNuxtApp({
-    path: window.location.pathname,
-  });
-};
 </script>

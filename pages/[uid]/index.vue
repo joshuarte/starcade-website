@@ -40,14 +40,14 @@ body {
 }
 
 h2 {
-  font-family: "Hogfish DEMO", sans-serif;
+  font-family: "Nunito", sans-serif;
   max-width: 300px;
   line-height: 1.25;
   margin: 0 auto;
 }
 
 .paragraph {
-  font-family: "Montserrat", sans-serif;
+  font-family: "PT Sans", sans-serif;
   max-width: 500px;
   font-weight: 300;
 }
@@ -116,7 +116,7 @@ h2 {
   width: 100%;
   background: #f3faef;
   color: #2c4066;
-  font-family: "Montserrat", sans-serif;
+  font-family: "PT Sans", sans-serif;
   text-decoration: none;
   outline: 0;
   border: 5px solid #b2d9db;
@@ -144,13 +144,12 @@ useHead({
 });
 /* reloadNuxtApp(); */
 const { client } = usePrismic();
-const { locale } = useI18n();
+const langs = useLanguages();
 const route = useRoute();
-let usedLanguage = locale._value == "it" ? "it-IT" : "en-GB";
 
 const { data: page } = await useAsyncData("page", async () => {
   const document = await client.getByUID("page", route.params.uid, {
-    lang: usedLanguage,
+    lang: langs.activeLocale,
   });
 
   if (document) {

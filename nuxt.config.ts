@@ -99,14 +99,89 @@ export default defineNuxtConfig({
     "@nuxtjs/robots",
     "nuxt-delay-hydration",
     "@nuxtjs/i18n",
+    "@dargmuesli/nuxt-cookie-control",
+    "nuxt-purgecss",
   ],
+  buildModules: ["@nuxtjs/google-fonts"],
+  googleFonts: {
+    display: "swap",
+    families: {
+      Nunito: [200, 400, 1000],
+      "PT+Sans": [400],
+    },
+  },
   delayHydration: {
     // enables nuxt-delay-hydration in dev mode for testing
     debug: process.env.NODE_ENV === "development",
     mode: "mount",
   },
+  purgecss: {
+    enabled: false, // Always enable purgecss
+    safelist: [".cookieControl"], // Add my-class token to the safelist (e.g. .my-class)
+  },
   prismic: {
     endpoint: "https://starcade-website.cdn.prismic.io/api/v2",
+  },
+  cookieControl: {
+    barPosition: "bottom-left",
+    locales: ["en", "it"],
+    // Translations to override.
+    localeTexts: {
+      en: {
+        save: "Remember",
+      },
+      it: {
+        save: "Ricorda",
+      },
+    },
+    cookies: {
+      necessary: [
+        {
+          description: {
+            en: "Used for cookie control.",
+            it: "Usato per il controllo dei cookies.",
+          },
+          id: `getCookieId(cookie)`,
+          name: {
+            en: "Google Analytics", // you always have to specify a cookie name (in English)
+            it: "Google Analytics", // you always have to specify a cookie name (in English)
+          },
+          src: "https://www.googletagmanager.com/gtag/js?id=G-BWTRXSC97S",
+          targetCookieIds: [
+            "cookie_control_consent",
+            "cookie_control_enabled_cookies",
+          ],
+        },
+      ],
+      optional: [
+        {
+          description: {
+            en: "Mailchimp cookie and settings control.",
+            it: "Impostazioni e controlli per i cookie di Mailchimp",
+          },
+          id: `getCookieId(cookie)`,
+          name: {
+            en: "MailChimp", // you always have to specify a cookie name (in English)
+            it: "MailChimp", // you always have to specify a cookie name (in English)
+          },
+          src: "https://starcade.us9.list-manage.com/subscribe?u=91cb3cb624c4ac924aee78508&id=737b32db7f",
+          targetCookieIds: ["hubspotuk"],
+        },
+        {
+          description: {
+            en: "Prismic cookie and settings control.",
+            it: "Impostazioni e controlli per i cookie di Prismic",
+          },
+          id: `getCookieId(cookie)`,
+          name: {
+            en: "Prismic", // you always have to specify a cookie name (in English)
+            it: "Prismic", // you always have to specify a cookie name (in English)
+          },
+          src: "https://starcade-website.prismic.io/",
+          targetCookieIds: ["prismic-auth"],
+        },
+      ],
+    },
   },
   i18n: {
     locales: [
